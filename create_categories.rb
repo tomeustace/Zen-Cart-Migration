@@ -23,9 +23,8 @@ def createCategories
 		row = @categories_hash[index]
 		category_name = row[2]
 		category_id = row[0]
+		
 		#cats and sub cats are added to term_data regardless
-		#puts "adding #{category_name} with id = #{category_id}"
-		#puts "parent category is #{@categories_row[0]} sub category is #{@categories_row[2]}"
 		insertCategory(category_id, category_name)
 		insertCategoryHierarchy(@categories_row[0], @categories_row[2])	
 		
