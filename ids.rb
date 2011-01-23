@@ -23,6 +23,30 @@ def get_nid()
   @my.close
 end   
 
+def get_uid()
+  @my = connection()
+  result = @my.query("SELECT MAX(uid) FROM users") 
+  
+  while row = result.fetch_hash do
+    @uid = row['MAX(uid)'].to_i
+    @uid += 1
+  end
+  result.free
+  @my.close
+end   
+
+def get_oid()
+  @my = connection()
+  result = @my.query("SELECT MAX(order_id) FROM uc_orders") 
+  
+  while row = result.fetch_hash do
+    @order_id = row['MAX(order_id)'].to_i
+    @order_id += 1
+  end
+  result.free
+  @my.close
+end   
+
 def get_fid()
   @my = connection()
   result = @my.query("SELECT MAX(fid) FROM file_managed") 

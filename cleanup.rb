@@ -18,4 +18,7 @@ def cleanup
    @connection.query("delete from field_revision_uc_product_image")
    @connection.query("delete from field_data_field_description")
    @connection.query("delete from field_revision_field_description")
+   
+   @connection.query("delete from users where uid > 1")
+   @connection.query("delete from uc_orders")
 end
