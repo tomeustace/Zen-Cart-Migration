@@ -40,11 +40,11 @@ def insertCategory(tid, name)
 	
 	puts name
 	@connection = connection()
-	@connection.query("INSERT INTO `taxonomy_term_data` (`tid`, `vid`, `name`, `description`, `format`, `weight`) VALUES (#{tid}, 2, '#{name}', '', 'filtered_html', 0);")
+	@connection.query("INSERT INTO `dr_taxonomy_term_data` (`tid`, `vid`, `name`, `description`, `format`, `weight`) VALUES (#{tid}, 2, '#{name}', '', 'filtered_html', 0);")
 end
 
 def insertCategoryHierarchy(sub_category, parent_category)
 	@connection = connection()
-	@connection.query("INSERT INTO `taxonomy_term_hierarchy` (`tid`, `parent`) VALUES (#{sub_category}, #{parent_category});")	
+	@connection.query("INSERT INTO `dr_taxonomy_term_hierarchy` (`tid`, `parent`) VALUES (#{sub_category}, #{parent_category});")	
 end
 
